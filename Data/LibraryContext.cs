@@ -13,12 +13,18 @@ namespace Achim_Daiana_Lab2Masterat.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Achim_Daiana_Lab2Masterat.Models.Author> Author { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<PublishedBook> PublishedBooks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>().ToTable("Customer");
             modelBuilder.Entity<Order>().ToTable("Order");
-            modelBuilder.Entity<Book>().ToTable("Book"); 
+            modelBuilder.Entity<Book>().ToTable("Book");
+            modelBuilder.Entity<Publisher>().ToTable("Publisher");
+            modelBuilder.Entity<PublishedBook>().ToTable("PublishedBook");
+            modelBuilder.Entity<PublishedBook>()
+            .HasKey(c => new { c.BookID, c.PublisherID });//configureaza cheia primara compusa
         }
     }
 }
