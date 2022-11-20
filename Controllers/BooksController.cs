@@ -61,7 +61,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
             int pageSize = 2;
             return View(await PaginatedList<Book>.CreateAsync(books.AsNoTracking(), pageNumber ?? 1, pageSize));
 
-            return View(await books.AsNoTracking().ToListAsync());
+            
         }
 
         // GET: Books/Details/5
@@ -84,13 +84,9 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
-            var authors = _context.Author.Select(n => new
-            {
-                n.Id,
-                FullName = n.FirstName + " " + n.LastName
-            });
-            ViewData["AuthorId"] = new SelectList(authors, "Id", "FullName");
-
+            //
+            ViewData["LastName"] = new SelectList(_context.Authors, "AuthorID", "LastName");
+            //
             return View();
         }
 
@@ -114,8 +110,8 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
             {
                 ModelState.AddModelError("", "Unable to save changes. " + "Try again, and if the problem persists ");
             }
-
-                ViewData["AuthorId"] = new SelectList(_context.Author, "Id", "Id", book.AuthorID);
+            //
+            // ViewData["AuthorID"] = new SelectList(_context.Authors, "AuthorID", "AuthorID", book.AuthorID);
             return View(book);
         }
 
@@ -126,12 +122,22 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
             {
                 return NotFound();
             }
+           
 
             var book = await _context.Books.FindAsync(id);
             if (book == null)
             {
                 return NotFound();
             }
+
+            //
+            var authors = _context.Author.Select(n => new
+            {
+                n.Id,
+                FullName = n.FirstName + " " + n.LastName
+            });
+            ViewData["LastName"] = new SelectList(_context.Authors, "AuthorID", "LastName", book.AuthorID);
+            //
             return View(book);
         }
 
@@ -162,6 +168,9 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
                     ModelState.AddModelError("", "Unable to save changes. " +"Try again, and if the problem persists");
                 }
             }
+            //
+            
+
             return View(bookToUpdate);
         }
 
