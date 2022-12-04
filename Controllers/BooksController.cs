@@ -72,7 +72,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books.Include(s => s.Orders).ThenInclude(e => e.Customer).AsNoTracking().FirstOrDefaultAsync(m => m.ID == id);
+            var book = await _context.Books.Include(b => b.Author).Include(s => s.Orders).ThenInclude(e => e.Customer).AsNoTracking().FirstOrDefaultAsync(m => m.ID == id);
             if (book == null)
             {
                 return NotFound();
@@ -84,9 +84,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
-            //
-            ViewData["LastName"] = new SelectList(_context.Authors, "AuthorID", "LastName");
-            //
+            ViewData["AuthorID"] = new SelectList(_context.Authors, "AuthorId", "LastName");
             return View();
         }
 
@@ -97,6 +95,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Title,Author,Price")] Book book)
         {
+            
             try
             {
                 if (ModelState.IsValid)
@@ -111,7 +110,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
                 ModelState.AddModelError("", "Unable to save changes. " + "Try again, and if the problem persists ");
             }
             //
-            // ViewData["AuthorID"] = new SelectList(_context.Authors, "AuthorID", "AuthorID", book.AuthorID);
+            ViewData["AuthorID"] = new SelectList(_context.Authors, "AuthorID", "LastName");
             return View(book);
         }
 
@@ -130,14 +129,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
                 return NotFound();
             }
 
-            //
-            var authors = _context.Author.Select(n => new
-            {
-                n.Id,
-                FullName = n.FirstName + " " + n.LastName
-            });
-            ViewData["LastName"] = new SelectList(_context.Authors, "AuthorID", "LastName", book.AuthorID);
-            //
+            ViewData["LastName"] = new SelectList(_context.Authors, "AuthorId", "LastName");
             return View(book);
         }
 
@@ -153,10 +145,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
                 return NotFound();
             }
             var bookToUpdate = await _context.Books.FirstOrDefaultAsync(s => s.ID == id);
-            if (await TryUpdateModelAsync<Book>(
-            bookToUpdate,
-            "",
-            s => s.Author, s => s.Title, s => s.Price))
+            if (await TryUpdateModelAsync<Book>(bookToUpdate,"",s => s.Author, s => s.Title, s => s.Price))
             {
                 try
                 {

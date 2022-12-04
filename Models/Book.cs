@@ -7,7 +7,7 @@ namespace Achim_Daiana_Lab2Masterat.Models
     {
         public int ID { get; set; }
         public string? Title { get; set; }
-        public int? AuthorID { get; set; }
+        public int? AuthorId { get; set; }
         public Author? Author { get; set; }
 
         [Column(TypeName = "decimal(6, 2)")]

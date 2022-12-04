@@ -21,8 +21,8 @@ namespace Achim_Daiana_Lab2Masterat.Data
                 {
                     return; // BD a fost creata anterior
                 }
-                
-                /*var orders = new Order[]
+
+                var orders = new Order[]
                {
             new Order{BookID=7,CustomerID=1,OrderDate=DateTime.Parse("2021-02-25")},
             new Order{BookID=8,CustomerID=2,OrderDate=DateTime.Parse("2021-09-28")},
@@ -79,10 +79,12 @@ namespace Achim_Daiana_Lab2Masterat.Data
                 {
                     context.PublishedBooks.Add(pb);
                 }
-                context.SaveChanges();*/
+                context.SaveChanges();
             }
 
         }
 
     }
+
+
 }
