@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Achim_Daiana_Lab2Masterat", "Achim_Daiana_Lab2Masterat.csproj", "{A977AA07-3DE2-4675-8538-733BFFFC02D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryModel", "..\LibraryModel\LibraryModel.csproj", "{7361F7A4-8340-4040-ACBC-FB21AD411134}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryModel", "LibraryModel\LibraryModel.csproj", "{BD9F525A-051A-4555-A1F3-2EB17F95C323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWebAPI", "..\LibraryWebAPI\LibraryWebAPI.csproj", "{DD1FFDF4-316D-4970-84A5-53D1D576F526}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryWebAPI", "LibraryWebAPI\LibraryWebAPI.csproj", "{75360805-DFDC-430C-903A-1E23DA9FA6A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{A977AA07-3DE2-4675-8538-733BFFFC02D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A977AA07-3DE2-4675-8538-733BFFFC02D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A977AA07-3DE2-4675-8538-733BFFFC02D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7361F7A4-8340-4040-ACBC-FB21AD411134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7361F7A4-8340-4040-ACBC-FB21AD411134}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7361F7A4-8340-4040-ACBC-FB21AD411134}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7361F7A4-8340-4040-ACBC-FB21AD411134}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DD1FFDF4-316D-4970-84A5-53D1D576F526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD1FFDF4-316D-4970-84A5-53D1D576F526}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD1FFDF4-316D-4970-84A5-53D1D576F526}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD1FFDF4-316D-4970-84A5-53D1D576F526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD9F525A-051A-4555-A1F3-2EB17F95C323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9F525A-051A-4555-A1F3-2EB17F95C323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9F525A-051A-4555-A1F3-2EB17F95C323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9F525A-051A-4555-A1F3-2EB17F95C323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75360805-DFDC-430C-903A-1E23DA9FA6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75360805-DFDC-430C-903A-1E23DA9FA6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75360805-DFDC-430C-903A-1E23DA9FA6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75360805-DFDC-430C-903A-1E23DA9FA6A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
