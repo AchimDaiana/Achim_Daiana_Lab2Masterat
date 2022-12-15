@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Achim_Daiana_Lab2Masterat.Data;
 using Achim_Daiana_Lab2Masterat.Models;
 using Achim_Daiana_Lab2Masterat.Models.LibraryViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Achim_Daiana_Lab2Masterat.Controllers
 {
+    [Authorize(Policy = "OnlySales")]
     public class PublishersController : Controller
     {
         private readonly LibraryContext _context;

@@ -10,10 +10,11 @@ using Achim_Daiana_Lab2Masterat.Models;
 using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Achim_Daiana_Lab2Masterat.Controllers
 {
+    [Authorize(Policy = "SalesManager")]
     public class CustomersController : Controller
     {
         private readonly LibraryContext _context;

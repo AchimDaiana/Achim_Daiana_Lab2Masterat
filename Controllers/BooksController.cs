@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Achim_Daiana_Lab2Masterat.Data;
 using Achim_Daiana_Lab2Masterat.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Achim_Daiana_Lab2Masterat.Controllers
 {
+    [Authorize(Roles = "Employee")]
     public class BooksController : Controller
     {
         private readonly LibraryContext _context;
@@ -20,6 +23,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
         }
 
         // GET: Books
+        [AllowAnonymous]
         public async Task<IActionResult> Index(string sortOrder,string currentFilter,string searchString,int? pageNumber)
 
         {
@@ -65,6 +69,7 @@ namespace Achim_Daiana_Lab2Masterat.Controllers
         }
 
         // GET: Books/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Books == null)
