@@ -34,6 +34,11 @@ builder.Services.AddAuthorization(opts => {
     });
 });
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequiredLength = 8;
+});
+
 builder.Services.AddAuthorization(opts => {
     opts.AddPolicy("SalesManager", policy => {
         policy.RequireRole("Manager");
